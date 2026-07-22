@@ -1,11 +1,12 @@
 name: Cypress e2e Tests                                                                         #esse workflow será executado quando for feito push 
-on: [push]
+on: 
+  workflow_dispatch: 
 jobs:
   tests:
     runs-on: ubuntu-latest
     container: 
-    image: cypress/browsers:22.16.0
-    options: --user 1001                                                                      #subir essa máquina com a imagem como um admin
+      image: cypress/browsers:22.16.0
+      options: --user 1001                                                                      #subir essa máquina com a imagem como um admin
     # Runs tests in parallel with matrix strategy https://on.cypress.io/parallelization
     # https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/run-job-variations
     # Also see warning here https://github.com/cypress-io/github-action#parallel
